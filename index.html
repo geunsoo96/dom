@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root">
+      <ul>
+        <li>item-1</li>
+        <li>item-2</li>
+        <li>item-3</li>
+        <li>item-4</li>
+        <li>item-5</li>
+      </ul>
+    </div>
+    <script type="module">
+      const root = document.getElementById("root");
+      console.table(root.style);
+      root.style.width = "100px";
+      root.style.height = "100px";
+      root.style.backgroundColor = "cadetblue";
+
+      console.dir(root.style);
+
+      const dom = [];
+
+      root.innerHTML = dom.join("ul");
+
+      const ul = ["", ""];
+
+      /*       dom.push(`<div>아구몬</div>`);
+      dom.push(`<div>파피몬</div>`);
+      dom.push(`<div>쉬라몬</div>`);
+      dom.push(`<div>피요몬</div>`);
+      dom.push(`<div>파닥몬</div>`);
+      dom.push(`<div>텐타몬</div>`);
+      console.log(dom.join("")); */
+
+      // ----------------------------------------------------------------
+
+      function tagCreate(count, tagName, attri, attriValue, textNode) {
+        for (let i = 0; i < count; i++) {
+          dom.push(
+            `<${tagName} ${attri}="${attriValue}-${
+              i + 1
+            } "style="color: red" onclick="alert('Hi')">${textNode}</${tagName}>`
+          );
+        }
+      }
+      tagCreate(6, "li", "class", "text", "아구몬");
+
+      root.innerHTML = dom.join("");
+
+      // -----------------------------------------------------------------
+
+      /*       function setStyle(tagName, textContent) {
+        return `<${tagName}>${textContent}</${tagName}>`;
+      }
+      let test =
+        setStyle("section", "hello") +
+        setStyle("article", "도우너 어서오고") +
+        setStyle("nav", "선넘네");
+      console.log(test);
+      console.log(typeof setStyle());
+      root.innerHTML = test; */
+    </script>
+  </body>
+</html>
